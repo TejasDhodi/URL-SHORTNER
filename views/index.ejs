@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortner</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/23de7712d8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="title">
+            <h1>&lbrace; Url Shortner &rbrace;</h1>
+            <h3 id="about">About</h3>
+        </div>
+
+        <section>
+            <div class="container">
+                <form action="/shortUrl" method="POST">
+                    <input type="url" name="fullUrl" id="fullUrl">
+                    <button type="submit"><i class="fa-solid fa-link"></i> Get</button>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full URL</th>
+                            <th>Short URL</th>
+                            <th>Clicks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% shortUrls.forEach(shortUrl=> { %>
+                            <tr>
+                                <td><a href="<%= shortUrl.full %>">
+                                        <%= shortUrl.full %>
+                                    </a></td>
+                                <td><a href="<%= shortUrl.short %>">
+                                        <%= shortUrl.short %>
+                                    </a></td>
+                                <td>
+                                    <%= shortUrl.clicks %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section>
+            <div class="about">
+                <p>A URL shortener is a tool or service that takes a long URL (Uniform Resource Locator) and creates a
+                    shorter, condensed version of it. The purpose of a URL shortener is to make long, complex URLs more
+                    manageable and easier to share.
+                    URL shorteners are commonly used on platforms with character limits, such as social media platforms
+                    like Twitter, where the number of characters is restricted for each post. By shortening a URL, it
+                    reduces the number of characters needed to display the link, making it more convenient to share
+                    within those limitations. A custom, or branded URL shortener, is when you’ve connected your own
+                    custom domain to a URL
+                    shortener which acts as a base for all the short links you create. Instead of using a generic domain
+                    such as bit.ly or rebrand.ly, you can pick your own.</p>
+                <div id="close">X</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
